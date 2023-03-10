@@ -1,4 +1,4 @@
-import { ASTNode, AstType } from "../types/ast";
+import { ASTNode, ASTType } from "../types/ast";
 
 interface Visitor {
   [key: string]: {
@@ -22,14 +22,14 @@ export function traverser(ast: ASTNode, visitor: Visitor) {
     }
 
     switch (node.type) {
-      case AstType.Program:
+      case ASTType.Program:
         traverseArray(node.body!, node);
         break;
-      case AstType.CallExpression:
+      case ASTType.CallExpression:
         traverseArray(node.params!, node);
         break;
-      case AstType.NumberLiteral:
-      case AstType.StringLiteral:
+      case ASTType.NumberLiteral:
+      case ASTType.StringLiteral:
         break;
       default:
         throw new Error(node.type);

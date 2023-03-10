@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { tokenizer } from "../tokenizer";
-import { AstType } from "../types/ast";
+import { ASTType } from "../types/ast";
 import { parser } from "./parser";
 
 describe("parser", () => {
@@ -9,26 +9,26 @@ describe("parser", () => {
     const ast = parser(tokens);
 
     expect(ast).toStrictEqual({
-      type: AstType.Program,
+      type: ASTType.Program,
       body: [
         {
-          type: AstType.CallExpression,
+          type: ASTType.CallExpression,
           name: "add",
           params: [
             {
-              type: AstType.NumberLiteral,
+              type: ASTType.NumberLiteral,
               value: "2",
             },
             {
-              type: AstType.CallExpression,
+              type: ASTType.CallExpression,
               name: "subtract",
               params: [
                 {
-                  type: AstType.NumberLiteral,
+                  type: ASTType.NumberLiteral,
                   value: "4",
                 },
                 {
-                  type: AstType.NumberLiteral,
+                  type: ASTType.NumberLiteral,
                   value: "2",
                 },
               ],

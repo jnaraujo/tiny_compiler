@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { parser } from "../parser";
 import { tokenizer } from "../tokenizer";
-import { AstType } from "../types/ast";
+import { ASTType } from "../types/ast";
 import { traverser } from "./traverser";
 
 describe("traverser", () => {
@@ -12,11 +12,11 @@ describe("traverser", () => {
     let results: any = [];
 
     traverser(ast, {
-      [AstType.CallExpression]: {
+      [ASTType.CallExpression]: {
         enter(node, parent) {
           results.push({
             event: "enter",
-            type: AstType.NumberLiteral,
+            type: ASTType.NumberLiteral,
             node,
             parent,
           });
@@ -24,7 +24,7 @@ describe("traverser", () => {
         exit(node, parent) {
           results.push({
             event: "exit",
-            type: AstType.CallExpression,
+            type: ASTType.CallExpression,
             node,
             parent,
           });
@@ -35,13 +35,13 @@ describe("traverser", () => {
     expect(results).toStrictEqual([
       {
         event: "enter",
-        type: AstType.NumberLiteral,
+        type: ASTType.NumberLiteral,
         node: ast.body![0],
         parent: ast,
       },
       {
         event: "exit",
-        type: AstType.CallExpression,
+        type: ASTType.CallExpression,
         node: ast.body![0],
         parent: ast,
       },

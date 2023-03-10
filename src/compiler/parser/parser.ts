@@ -1,4 +1,4 @@
-import { ASTNode, AstType } from "../types/ast";
+import { ASTNode, ASTType } from "../types/ast";
 import { Token, TokenType } from "../types/token";
 import { isLeftParen, isRightParen } from "./helper";
 
@@ -12,7 +12,7 @@ export function parser(tokens: Token[]): ASTNode {
       index++;
 
       return {
-        type: AstType.NumberLiteral,
+        type: ASTType.NumberLiteral,
         value: token.value,
       };
     }
@@ -21,7 +21,7 @@ export function parser(tokens: Token[]): ASTNode {
       index++;
 
       return {
-        type: AstType.StringLiteral,
+        type: ASTType.StringLiteral,
         value: token.value,
       };
     }
@@ -31,7 +31,7 @@ export function parser(tokens: Token[]): ASTNode {
       token = tokens[index];
 
       const node: ASTNode = {
-        type: AstType.CallExpression,
+        type: ASTType.CallExpression,
         name: token.value,
         params: [],
       };
@@ -53,7 +53,7 @@ export function parser(tokens: Token[]): ASTNode {
   }
 
   let ast = {
-    type: AstType.Program,
+    type: ASTType.Program,
     body: [] as any,
   };
 

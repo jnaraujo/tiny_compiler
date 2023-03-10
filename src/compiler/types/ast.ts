@@ -1,14 +1,14 @@
-import { TokenType } from "./token";
-
-export enum AstType {
+export enum ASTType {
   Program = "Program",
   NumberLiteral = "NumberLiteral",
   StringLiteral = "StringLiteral",
   CallExpression = "CallExpression",
+  Identifier = "Identifier",
+  ExpressionStatement = "ExpressionStatement",
 }
 
 export interface ASTNode {
-  type: AstType;
+  type: ASTType;
   name?: string;
   value?: string;
   params?: ASTNode[];
