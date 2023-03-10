@@ -12,8 +12,5 @@ export interface ASTNode {
   name?: string;
   value?: string;
   params?: ASTNode[];
-}
-export interface IAST {
-  type: AstType;
-  body: ASTNode[];
+  body?: ASTNode[];
 }

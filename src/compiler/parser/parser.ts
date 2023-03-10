@@ -2,7 +2,7 @@ import { ASTNode, AstType } from "../types/ast";
 import { Token, TokenType } from "../types/token";
 import { isLeftParen, isRightParen } from "./helper";
 
-export function parser(tokens: Token[]) {
+export function parser(tokens: Token[]): ASTNode {
   let index = 0;
 
   function walk(): ASTNode {
