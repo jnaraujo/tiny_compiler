@@ -5,7 +5,7 @@ import {
   isQuoteMark,
   isWhiteSpace,
   textToChars,
-} from "../helper";
+} from "./helper";
 
 describe("helper", () => {
   it("should break text into character", () => {

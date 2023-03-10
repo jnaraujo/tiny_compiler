@@ -1,5 +1,5 @@
 import { isLetter, isNumber, isQuoteMark, isWhiteSpace } from "./helper";
-import { Token, TokenType } from "./types/token";
+import { Token, TokenType } from "../types/token";
 
 export function tokenizer(input: string) {
   const tokens: Token[] = [];
