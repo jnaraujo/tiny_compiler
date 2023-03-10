@@ -1,11 +1,11 @@
-import { AstType } from "../types/ast";
+import { ASTNode, AstType } from "../types/ast";
 import { Token, TokenType } from "../types/token";
 import { isLeftParen, isRightParen } from "./helper";
 
 export function parser(tokens: Token[]) {
   let index = 0;
 
-  function walk() {
+  function walk(): ASTNode {
     let token = tokens[index];
 
     if (token.type === TokenType.Number) {
@@ -30,17 +30,17 @@ export function parser(tokens: Token[]) {
       index++;
       token = tokens[index];
 
-      const node = {
+      const node: ASTNode = {
         type: AstType.CallExpression,
         name: token.value,
-        params: [] as any,
+        params: [],
       };
 
       index++;
       token = tokens[index];
 
       while (!isRightParen(token) || token.type !== TokenType.Paren) {
-        node.params.push(walk());
+        node.params?.push(walk());
         token = tokens[index];
       }
 
