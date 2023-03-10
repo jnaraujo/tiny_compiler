@@ -15,4 +15,15 @@ describe("compiler", () => {
 
     expect(output).toBe("add(2, subtract(4, 2));");
   });
+
+  it("test divide and subtract", () => {
+    const input = "(divide 2 (subtract 4 2))";
+    const tokens = tokenizer(input);
+    const ast = parser(tokens);
+    const newAST = transformer(ast);
+
+    const output = codeGenerator(newAST);
+
+    expect(output).toBe("divide(2, subtract(4, 2));");
+  });
 });
