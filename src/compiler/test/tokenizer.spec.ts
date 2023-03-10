@@ -1,5 +1,6 @@
 import { describe, expect, it } from "vitest";
-import { tokenizer, TokenType } from "../tokenizer";
+import { tokenizer } from "../tokenizer";
+import { TokenType } from "../types/token";
 
 describe("tokenizer", () => {
   it("simple math expression", () => {

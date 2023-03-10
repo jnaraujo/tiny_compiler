@@ -1,17 +1,5 @@
 import { isLetter, isNumber, isQuoteMark, isWhiteSpace } from "./helper";
-
-export enum TokenType {
-  Paren = "paren",
-  Number = "number",
-  String = "string",
-  Name = "name",
-  WhiteSpace = "whitespace",
-}
-
-export interface Token {
-  type: TokenType;
-  value: string;
-}
+import { Token, TokenType } from "./types/token";
 
 export function tokenizer(input: string) {
   const tokens: Token[] = [];
